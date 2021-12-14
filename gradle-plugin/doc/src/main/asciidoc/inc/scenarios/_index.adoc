@@ -8,6 +8,8 @@ configuration modes:
 
 include::_zero-config.adoc[]
 
+include::_quarkus.adoc[]
+
 include::_groovy.adoc[]
 
 include::_dockerfile.adoc[]
