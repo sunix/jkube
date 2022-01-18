@@ -30,7 +30,7 @@ public class ThorntailV2Generator extends JavaExecGenerator {
     @Override
     public boolean isApplicable(List<ImageConfiguration> configs) {
         return shouldAddGeneratedImageConfiguration(configs)
-                && JKubeProjectUtil.hasPlugin(getProject(), "io.thorntail", "thorntail-maven-plugin")
+                && (JKubeProjectUtil.hasPlugin(getProject(), "io.thorntail", "thorntail-maven-plugin") || JKubeProjectUtil.hasDependency(getProject(), "io.thorntail", "thorntail-gradle-plugin") )
                 // if there's thorntail-kernel, it's Thorntail v4
                 && !JKubeProjectUtil.hasDependency(getProject(), "io.thorntail", "thorntail-kernel");
     }
