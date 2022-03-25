@@ -56,10 +56,6 @@ components:
           path: /var/www/html
         - name: kube
           path: /home/user/.kube
-        - name: remote-endpoint
-          path: /remote-endpoint
-        - name: plugins
-          path: /plugins
     name: jkube-dev
   - container:
       endpoints:
