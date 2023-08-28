@@ -130,7 +130,7 @@ class JavaExecGeneratorTest {
       testGenerator.createAssembly();
 
       // Then
-      verify(generatorContext.getLogger(), times(0)).warn(anyString());
+      verify(generatorContext.getLogger(), times(0)).info(anyString());
       verify(generatorContext.getLogger(), times(0)).error(anyString());
     }
   }
@@ -170,7 +170,7 @@ class JavaExecGeneratorTest {
 
       // Then
       verify(generatorContext.getLogger())
-          .warn("java-exec: Final output artifact is the same as previous build. " +
+          .info("java-exec: Final output artifact is the same as previous build. " +
               "You might have forgotten to compile and package your application after making changes.");
     }
   }
@@ -209,7 +209,7 @@ class JavaExecGeneratorTest {
       Files.createFile(targetDir.toPath().resolve("sample.jar"));
 
       // Then
-      verify(generatorContext.getLogger(), times(0)).warn(anyString());
+      verify(generatorContext.getLogger(), times(0)).info(anyString());
       verify(generatorContext.getLogger(), times(0)).error(anyString());
     }
   }

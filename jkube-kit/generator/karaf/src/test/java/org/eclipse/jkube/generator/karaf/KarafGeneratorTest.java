@@ -111,7 +111,7 @@ class KarafGeneratorTest {
     testGenerator.createDefaultAssembly();
 
     // Then
-    verify(generatorContext.getLogger(), times(0)).warn(anyString());
+    verify(generatorContext.getLogger(), times(0)).info(anyString());
     verify(generatorContext.getLogger(), times(0)).error(anyString());
   }
 
@@ -144,7 +144,7 @@ class KarafGeneratorTest {
 
     // Then
     verify(generatorContext.getLogger())
-            .warn("karaf: Final output artifact is the same as previous build. " +
+            .info("karaf: Final output artifact is the same as previous build. " +
                   "You might have forgotten to compile and package your application after making changes.");
   }
 
@@ -177,7 +177,7 @@ class KarafGeneratorTest {
     Files.createFile(targetDir.toPath().resolve("sample.jar"));
 
     // Then
-    verify(generatorContext.getLogger(), times(0)).warn(anyString());
+    verify(generatorContext.getLogger(), times(0)).info(anyString());
     verify(generatorContext.getLogger(), times(0)).error(anyString());
   }
 
