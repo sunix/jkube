@@ -315,18 +315,18 @@ public abstract class BaseGenerator implements Generator {
         if (isCurrentFinalArtifactSameAsPrevious) {
           log.info(
               "Final output artifact is the same as previous build. " +
-                  "You might have forgotten to compile and package your application after making changes.");
+                  "HINT: You might have forgotten to compile and package your application after making changes.");
         }
       } catch (Exception e) {
           log.debug("Failed to check if final output artifact is the same as previous build. ", e);
-      }
-
-      if (finalOutputArtifact != null) {
-        try {
-          saveCurrentArtifactLastModifiedTime(getProject().getBuildDirectory().toPath(), finalOutputArtifact);
-        } catch (IOException e) {
-            log.debug("Failed to save the last modified time of the final output artifact. ", e);
-        }
+      } finally {
+          if (finalOutputArtifact != null) {
+            try {
+              saveCurrentArtifactLastModifiedTime(getProject().getBuildDirectory().toPath(), finalOutputArtifact);
+            } catch (IOException e) {
+                log.debug("Failed to save the last modified time of the final output artifact. ", e);
+            }
+          }
       }
     }
 }

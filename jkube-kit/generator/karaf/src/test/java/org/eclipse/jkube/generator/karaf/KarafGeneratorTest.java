@@ -145,7 +145,7 @@ class KarafGeneratorTest {
     // Then
     verify(generatorContext.getLogger())
             .info("karaf: Final output artifact is the same as previous build. " +
-                  "You might have forgotten to compile and package your application after making changes.");
+                  "HINT: You might have forgotten to compile and package your application after making changes.");
   }
 
   @Test
