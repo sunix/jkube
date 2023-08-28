@@ -44,14 +44,13 @@ public class ArtifactUtil {
    * Retrieves the last modified time of the previously built artifact from the given directory.
    *
    * @param loadDirectoryPath the directory where the last modified time was saved
-   * @return the last modified time of the previously built artifact or null if the file does not exist
+   * @return the last modified time of the previously built artifact
+   * @throws IOException if an I/O error occurs
    */
-  public static long retrievePreviousArtifactLastModifiedTime(Path loadDirectoryPath) {
+  public static long retrievePreviousArtifactLastModifiedTime(Path loadDirectoryPath) throws IOException {
     try (DataInputStream in = new DataInputStream(
         Files.newInputStream(loadDirectoryPath.resolve(LAST_MODIFIED_TIME_SAVE_FILENAME)))) {
       return in.readLong();
-    } catch (IOException e) {
-      return 0L;
     }
   }
 }
