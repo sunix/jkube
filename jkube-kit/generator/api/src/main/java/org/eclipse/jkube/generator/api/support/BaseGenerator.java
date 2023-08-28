@@ -313,7 +313,7 @@ public abstract class BaseGenerator implements Generator {
         boolean isCurrentFinalArtifactSameAsPrevious = currentLastModifiedTime == previousLastModifiedTime;
 
         if (isCurrentFinalArtifactSameAsPrevious) {
-          log.warn(
+          log.info(
               "Final output artifact is the same as previous build. " +
                   "You might have forgotten to compile and package your application after making changes.");
         }
