@@ -136,7 +136,7 @@ class BaseGeneratorTest {
     testGenerator.checkAndWarnIfProjectHasNotBeenBuilt();
 
     // Then
-    verify(ctx.getLogger(), times(0)).warn(anyString());
+    verify(ctx.getLogger(), times(0)).info(anyString());
     verify(ctx.getLogger(), times(0)).error(anyString());
   }
 
@@ -169,7 +169,7 @@ class BaseGeneratorTest {
 
     // Then
     verify(ctx.getLogger())
-            .warn("test: Final output artifact is the same as previous build. " +
+            .info("test: Final output artifact is the same as previous build. " +
                   "You might have forgotten to compile and package your application after making changes.");
   }
 
@@ -202,7 +202,7 @@ class BaseGeneratorTest {
     generator.checkAndWarnIfProjectHasNotBeenBuilt();
 
     // Then
-    verify(ctx.getLogger(), times(0)).warn(anyString());
+    verify(ctx.getLogger(), times(0)).info(anyString());
     verify(ctx.getLogger(), times(0)).error(anyString());
   }
 
